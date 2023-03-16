@@ -36,6 +36,11 @@ class FirstActivity : AppCompatActivity() {
 
         }
 
+        binding.button3.setOnClickListener {
+            val intent = Intent(this, AddEditNoteActivity::class.java)
+            startActivity(intent)
+        }
+
        binding.puzzle.setOnClickListener {
             val intent = Intent(this, PuzzleActivity::class.java)
             startActivity(intent)

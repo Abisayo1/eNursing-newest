@@ -61,6 +61,8 @@ class TopicsActivity : AppCompatActivity() {
         topicList.add(Topic(0, "Communication skills", ""))
         topicList.add(Topic(0, "Oxygenation", ""))
         topicList.add(Topic(0, "Oxygen Therapy", ""))
+        topicList.add(Topic(0, "View Other Courses", ""))
+
 
 
 
@@ -146,6 +148,12 @@ class TopicsActivity : AppCompatActivity() {
                     9 -> {
                         val intent =
                             Intent(this@TopicsActivity, OxygenTherapySubTopicActivity::class.java)
+                        startActivity(intent)
+
+                    }
+                    10 -> {
+                        val intent =
+                            Intent(this@TopicsActivity, DisplayCoursesActivity::class.java)
                         startActivity(intent)
 
                     }

@@ -29,7 +29,7 @@
             android:layout_width="118dp"
             android:layout_height="118dp"
             android:layout_marginTop="116dp"
-            android:src="@drawable/avatar20"
+            android:src="@drawable/client"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
