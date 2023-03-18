@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import com.abisayo.computerize1.data.Constants
 import com.abisayo.computerize1.data.Constants.EXTRA_CLOSE_APP
 import com.abisayo.computerize1.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
 
+
+
         binding.textView4.setOnClickListener {
             val intent = Intent(this, CreateAccount::class.java)
             startActivity(intent)
@@ -35,8 +38,9 @@ class MainActivity : AppCompatActivity() {
 
                     firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val intent = Intent(this, TopicsActivity::class.java)
+                            val intent = Intent(this, FirstActivity::class.java)
                             startActivity(intent)
+                            finish()
                         }else {
                             Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                         }
@@ -58,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         if (firebaseAuth.currentUser != null) {
 
-            val intent = Intent(this, TopicsActivity::class.java)
+            val intent = Intent(this, FirstActivity::class.java)
             startActivity(intent)
 
         }

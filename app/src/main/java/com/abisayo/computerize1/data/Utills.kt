@@ -12,6 +12,9 @@ import com.abisayo.computerize1.historyOfNursing.HistoryFlashcardActivity
 import com.abisayo.computerize1.oxygenation.OxygenationFlashCardActivity
 import com.abisayo.computerize1.roles.RolesFlashcardActivity
 import com.abisayo.computerize1.trendsInNursing.TrendsFlashcardActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.functions.FirebaseFunctions
+
 
 fun Activity.startHistoryFlashcardActivity(flashCards: ArrayList<FlashCard>){
     val activityIntent =
@@ -74,4 +77,30 @@ fun Activity.startOxygenTherapyFlashCardActivity(flashCards: ArrayList<FlashCard
         Intent(this, OxygenTherapyFlashCardActivity::class.java)
     activityIntent.putExtra(Constants.EXTRA_FLASH_CARD, flashCards)
     startActivity(activityIntent)
+}
+
+fun logUserLogin() {
+    val functions = FirebaseFunctions.getInstance()
+    FirebaseAuth.getInstance().addAuthStateListener { auth ->
+        if (auth.currentUser != null) {
+            val user = auth.currentUser
+            val uid = user?.uid
+            val displayName = user?.displayName
+            val email = user?.email
+            val timestamp = System.currentTimeMillis()
+            val userLogin = hashMapOf(
+                "uid" to uid,
+                "displayName" to displayName,
+                "email" to email,
+                "timestamp" to timestamp
+            )
+            functions.getHttpsCallable("logUserLogin").call(userLogin)
+                .addOnSuccessListener { result ->
+                    // Handle success
+                }
+                .addOnFailureListener { e ->
+                    // Handle error
+                }
+        }
+    }
 }

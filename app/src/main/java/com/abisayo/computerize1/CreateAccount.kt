@@ -4,11 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.abisayo.computerize1.data.Constants
 import com.abisayo.computerize1.databinding.ActivityCreateAccountBinding
 import com.abisayo.computerize1.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 
 class CreateAccount : AppCompatActivity() {
+    private lateinit var database : DatabaseReference
+
     private lateinit var binding: ActivityCreateAccountBinding
     private lateinit var firebaseAuth : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,17 +27,21 @@ class CreateAccount : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         binding.button.setOnClickListener {
             val email = binding.editTextTextPassword.text.toString().trim()
             val pass = binding.editTextNumberPassword.text.toString().trim()
             val confirmPass = binding.editTextTextPassword2.text.toString().trim()
+            val name = binding.email.text.toString().trim()
+
 
             if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (pass == confirmPass) {
 
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val intent = Intent(this, MainActivity::class.java)
+                            val intent = Intent(this, FirstActivity::class.java)
+                            intent.putExtra(Constants.NAME, name)
                             startActivity(intent)
                         }else {
                             Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -47,5 +55,9 @@ class CreateAccount : AppCompatActivity() {
                 Toast.makeText(this, "Empty fields are not allowed", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun saveData(name: String, time: String) {
+        TODO("Not yet implemented")
     }
 }

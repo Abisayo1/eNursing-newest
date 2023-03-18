@@ -4,6 +4,7 @@ import com.abisayo.computerize1.R
 
 object Constants {
 
+    const val NAME = "Any"
     const val EXTRA_FLASH_CARD = "EXTRA_FLASH_CARD"
     const val EXTRA_CLOSE_APP = "EXTRA_CLOSE_APP"
     const val TOPIC: String = "topic"

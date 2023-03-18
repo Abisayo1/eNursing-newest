@@ -2,4 +2,8 @@ package com.abisayo.computerize1.models
 
 data class Course(var courseTitle: String ?= null, var note : String ?= null)
 
-data class Scores(var studentName: String ?= null, var courseTitle: String ?= null, var studentScore : String ?= null)
+data class Track(var studentName: String ?= null, val userId: String?= null, var timeStamp : String ?= null)
+
+data class Student(var email: String ?= null)
+
+data class Scores(var studentName: String ?= null, val userId: String?= null, var timeStamp : String ?= null)

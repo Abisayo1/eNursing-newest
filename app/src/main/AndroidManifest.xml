@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Computerize1">
         <activity
+            android:name=".DisplayTrackingActivity"
+            android:exported="false" />
+        <activity
             android:name=".BehaviouralObjectivesActivity"
             android:exported="false" />
         <activity
