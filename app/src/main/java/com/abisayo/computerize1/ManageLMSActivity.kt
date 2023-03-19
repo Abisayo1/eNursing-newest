@@ -28,7 +28,7 @@ class ManageLMSActivity : AppCompatActivity() {
         }
 
         binding.course.setOnClickListener {
-            val intent = Intent(this, AddEditNoteActivity::class.java)
+            val intent = Intent(this, NoteActivity::class.java)
             startActivity(intent)
         }
     }

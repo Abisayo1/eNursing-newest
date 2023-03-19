@@ -20,7 +20,7 @@ class NewCoursesDisplayedActivity : AppCompatActivity() {
 
         val topic = intent.getStringExtra(Constants.TOPIC)
 
-        database = FirebaseDatabase.getInstance().getReference("Course")
+        database = FirebaseDatabase.getInstance().getReference("Courses")
         if (topic != null) {
             database.child(topic).get().addOnSuccessListener {
                 if (it.exists()) {

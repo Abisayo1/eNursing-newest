@@ -11,10 +11,10 @@ import com.abisayo.computerize1.Games.GameClaraActivity
 import com.abisayo.computerize1.data.Constants
 import com.abisayo.computerize1.databinding.ActivityFirstBinding
 import com.abisayo.computerize1.models.Scores
+import com.abisayo.computerize1.models.Student
 import com.abisayo.computerize1.models.Track
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,6 +22,7 @@ class FirstActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth : FirebaseAuth
     private lateinit var database : DatabaseReference
+
 
     private lateinit var binding: ActivityFirstBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +52,9 @@ class FirstActivity : AppCompatActivity() {
         editor.apply()
 
 
+
+
+
         val username = sharedPreferences.getString("username", "")
 
 
@@ -66,9 +70,10 @@ class FirstActivity : AppCompatActivity() {
         val timeFormat = SimpleDateFormat("h:mm a", Locale.getDefault())
         val formattedTime = timeFormat.format(calendar.time)
 
-        val currentTime: String = formattedTime
+        val sdf = SimpleDateFormat("dd MMM yyyy - HH:mm")
+        val currentDate:String = sdf.format(Date())
 
-        val time = "$currentTime, $dayOfMonth, $year"
+        val time = "$currentDate, $dayOfMonth, $year"
 
         println("Seconds: $seconds")
         println("Minutes: $minutes")
@@ -76,13 +81,47 @@ class FirstActivity : AppCompatActivity() {
         println("Day of month: $dayOfMonth")
         println("Year: $year")
 
-        saveData("$username", "$userID", "$time")
+
+
+
+
 
 
 
         val userEmail = FirebaseAuth.getInstance().currentUser?.email
 
-       binding.course.setOnClickListener {
+        val databases = FirebaseDatabase.getInstance().reference
+        val user = FirebaseAuth.getInstance().currentUser
+        val uid = user?.uid
+        database = FirebaseDatabase.getInstance().getReference("Student")
+        database.child("$uid").get().addOnSuccessListener {
+
+            if (it.exists()){
+
+                val firstname = it.child("name").value
+
+                //Toast.makeText(this,"$firstname",Toast.LENGTH_SHORT).show()
+                savedData("$firstname")
+
+                saveData("$firstname", "$userID", "$currentDate")
+
+
+            }else{
+                val name = intent.getStringExtra(Constants.NAME)
+                savedData("$name")
+                saveData("$name", "$userID", "$currentDate")
+
+
+            }
+
+        }.addOnFailureListener {
+
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+            binding.course.setOnClickListener {
             val intent = Intent(this, TopicsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
@@ -97,7 +136,7 @@ class FirstActivity : AppCompatActivity() {
         }
 
         binding.button3.setOnClickListener {
-            val intent = Intent(this, ManageLMSActivity::class.java)
+            val intent = Intent(this, EnterAdminPasswordActivity::class.java)
             startActivity(intent)
         }
 
@@ -110,6 +149,7 @@ class FirstActivity : AppCompatActivity() {
     }
 
     private fun saveData(name: String, userID: String, time: String) {
+
         database = FirebaseDatabase.getInstance().getReference("Track")
         val Track = Track(name, userID, time)
 
@@ -120,5 +160,17 @@ class FirstActivity : AppCompatActivity() {
             }
         }
 
+    private fun savedData(name: String) {
+        val user = FirebaseAuth.getInstance().currentUser
+        val uid = user?.uid
+        database = FirebaseDatabase.getInstance().getReference("Student")
+        val Student = Student(name, uid)
+
+        database.child("$uid").setValue(Student).addOnSuccessListener {
+
+        }.addOnFailureListener {
+
+        }
+    }
 
 }

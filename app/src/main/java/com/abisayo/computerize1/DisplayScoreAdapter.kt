@@ -47,7 +47,7 @@ class DisplayScoreAdapter : RecyclerView.Adapter<DisplayScoreAdapter.MyViewHolde
 
         currentitem = scoreList[position]
 
-        holder.courseTopic.text = email
+        holder.courseTopic.text = currentitem.studentName
         holder.time.text = currentitem.timeStamp
 
         val courseTitle = currentitem.studentName

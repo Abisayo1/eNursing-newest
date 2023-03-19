@@ -7,8 +7,10 @@ import android.widget.Toast
 import com.abisayo.computerize1.data.Constants
 import com.abisayo.computerize1.databinding.ActivityCreateAccountBinding
 import com.abisayo.computerize1.databinding.ActivityMainBinding
+import com.abisayo.computerize1.models.Student
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class CreateAccount : AppCompatActivity() {
     private lateinit var database : DatabaseReference
@@ -35,6 +37,8 @@ class CreateAccount : AppCompatActivity() {
             val name = binding.email.text.toString().trim()
 
 
+
+
             if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (pass == confirmPass) {
 
@@ -43,6 +47,7 @@ class CreateAccount : AppCompatActivity() {
                             val intent = Intent(this, FirstActivity::class.java)
                             intent.putExtra(Constants.NAME, name)
                             startActivity(intent)
+                            finish()
                         }else {
                             Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                         }
@@ -57,7 +62,5 @@ class CreateAccount : AppCompatActivity() {
         }
     }
 
-    private fun saveData(name: String, time: String) {
-        TODO("Not yet implemented")
-    }
+
 }

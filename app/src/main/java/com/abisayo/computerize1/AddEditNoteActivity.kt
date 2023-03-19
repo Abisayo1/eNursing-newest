@@ -43,7 +43,7 @@ class AddEditNoteActivity : AppCompatActivity() {
             val noteTitle = binding.editNoteTitle.text.toString().trim()
             val noteDescription = binding.editNoteDescription.text.toString()
 
-            database = FirebaseDatabase.getInstance().getReference("Course")
+            database = FirebaseDatabase.getInstance().getReference("Courses")
             val Course = Course(noteTitle, noteDescription)
             database.child(noteTitle).setValue(Course).addOnSuccessListener {
                 Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show()
