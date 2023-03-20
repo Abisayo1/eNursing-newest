@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         android:gravity="center"
-        android:text="Welcome Mrs Ope-Babadele"
+        android:text="Welcome Oluwatosin"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         android:textStyle="bold"

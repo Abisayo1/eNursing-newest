@@ -39,16 +39,16 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_margin="8dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
-                    android:text="Abisayo"
+                    android:text="Abisayo John Folu-Agoi"
                     android:textAlignment="center"
                     android:textColor="#ffff"
                     android:textSize="19sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/img"
-                    app:layout_constraintHorizontal_bias="0.521"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.283"
+                    app:layout_constraintStart_toEndOf="@+id/textView22"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -58,7 +58,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_margin="8dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="12dp"
                     android:gravity="center_horizontal"
                     android:text="Flowchart"
                     android:textAlignment="center"
@@ -66,7 +66,7 @@
                     android:textSize="19sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/img"
-                    app:layout_constraintHorizontal_bias="0.32"
+                    app:layout_constraintHorizontal_bias="0.325"
                     app:layout_constraintStart_toEndOf="@+id/textView23"
                     app:layout_constraintTop_toBottomOf="@+id/student_name" />
 
@@ -104,17 +104,14 @@
                     android:id="@+id/textView22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:layout_marginRight="48dp"
                     android:text="name:"
                     android:textColor="#ffff"
                     android:textSize="19sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/student_name"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/textView24"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.62" />
+                    app:layout_constraintTop_toTopOf="@+id/student_name"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/textView23"
