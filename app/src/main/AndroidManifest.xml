@@ -144,7 +144,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".HistoryQuizActivity"
+            android:name=".historyOfNursing.HistoryQuizActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -158,35 +158,35 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Algorithms.HistoryYoutubeActivity"
+            android:name=".historyOfNursing.HistoryYoutubeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Algorithms.AlgorithmSubTopicActivity"
+            android:name=".trendsInNursing.TrendsFlashcardActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Algorithms.AlgorithmFlashcardActivity"
+            android:name=".historyOfNursing.HistoryFlashcardActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Flowcharts.FlowchartsFlashcardActivity"
+            android:name=".trendsInNursing.TrendsSubTopicActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Flowcharts.FlowchartsSubTopicActivity"
+            android:name=".historyOfNursing.HistorySubTopicActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

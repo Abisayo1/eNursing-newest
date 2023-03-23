@@ -103,9 +103,6 @@ class TopicsActivity : AppCompatActivity() {
 
                     }
                     2 -> {
-//                        startActivity(Intent(Intent.ACTION_VIEW,
-//                            Uri.parse("https://www.youtube.com/watch?v=xu0pGgQWPYc")));
-
                         startActivity(Intent(this@TopicsActivity,
                             StandardsActivity::class.java))
                     }
