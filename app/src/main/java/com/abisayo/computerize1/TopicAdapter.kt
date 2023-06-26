@@ -65,18 +65,22 @@ class TopicAdapter(private val topicList: ArrayList<Topic>) :
             }
             1, 7, 13, 19 -> {
                 holder.layout.setBackgroundColor(Color.parseColor("#6CD0FF"))
+                holder.imageView.setImageResource(R.drawable.black_girl)
             }
             2, 8, 14, 20 -> {
                 holder.layout.setBackgroundColor(Color.parseColor("#801155"))
             }
             3, 9, 15, 21 -> {
                 holder.layout.setBackgroundColor(Color.parseColor("#9A6AFF"))
+                holder.imageView.setImageResource(R.drawable.black_boy)
             }
             4, 10, 16, 22 -> {
                 holder.layout.setBackgroundColor(Color.parseColor("#1E2029"))
+                holder.imageView.setImageResource(R.drawable.black_girl)
             }
             5, 11, 17, 23 -> {
                 holder.layout.setBackgroundColor(Color.parseColor("#E86926"))
+                holder.imageView.setImageResource(R.drawable.black_boy)
             }
         }
     }
